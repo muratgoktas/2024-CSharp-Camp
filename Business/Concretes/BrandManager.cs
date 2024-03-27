@@ -30,7 +30,7 @@ public class BrandManager : IBrandServices
         brand.CreatedDate = DateTime.Now;
         _brandDal.Add(brand);
 
-        // mapping
+        // mapping --> bu işlemler için automapper kullanacağız.
         CreatedBrandResponse createdBrandResponse = new CreatedBrandResponse();
         createdBrandResponse.Name =brand.Name;
         createdBrandResponse.CreatedDate=brand.CreatedDate;
@@ -47,7 +47,21 @@ public class BrandManager : IBrandServices
 
     public List<IBaseResponse<int>> GetAll()
     {
-        throw new NotImplementedException();
+        List<Brand> brands = _brandDal.GetAll();
+        List<IBaseResponse<int>> getAllBrandResponses = new List<IBaseResponse<int>>();
+
+        foreach (var brand in brands)
+        {
+            GetAllBrandResponse getAllBrandResponse = new GetAllBrandResponse();
+            getAllBrandResponse.Name =brand.Name;
+            getAllBrandResponse.Id = brand.Id;
+            getAllBrandResponse.CreatedDate = brand.CreatedDate;
+            getAllBrandResponses.Add(getAllBrandResponse);
+
+        }
+        return getAllBrandResponses;
+
+
     }
 
     public IBaseResponse<int> Update(IBaseRequest entity)
