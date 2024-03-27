@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Dto.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Core.Business;
 
-public interface IBaseService<T>
+public interface IBaseService<T,TId>
 {
-    T Add(T entity);
-    void Update(T entity);
-    void Delete(T entity);
-    List<T> GetAll();
+    IBaseResponse<TId> Add(IBaseRequest baseRequest);
+    IBaseResponse<TId> Update(IBaseRequest baseRequest);
+    IBaseResponse<TId> Delete(IBaseRequest baseRequest);
+    List<IBaseResponse<TId>> GetAll();
 }

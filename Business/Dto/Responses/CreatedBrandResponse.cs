@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Dto.Responses
 {
-    public class CreatedBrandResponse : ICreateResponse<int>
+    public class CreatedBrandResponse : IBaseResponse<int>
     {
         public int Id { get; set; }
         public string Name { get; set; }

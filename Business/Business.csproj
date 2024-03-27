@@ -8,11 +8,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Concretes\" />
+    <Folder Include="Dto\Abstracts\" />
   </ItemGroup>
 
 </Project>

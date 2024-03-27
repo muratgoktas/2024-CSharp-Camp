@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstracts
 {
-    public interface IBrandServices:IBaseService<Brand>
+    public interface IBrandServices:IBaseService<Brand,int>
     {
 
     }
